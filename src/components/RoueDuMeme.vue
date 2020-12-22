@@ -3,7 +3,7 @@
     <!-- ROUE DU MEME AU CLICK -->
 
     <div class="rdm-click">
-      <button @click="previousMeme(randomMeme)">Précédent</button>
+      <button  @click="previousMeme(randomMeme)">Précédent</button>
       <button :randomHandler="alreadyStoredNumber" @click="getRandomMeme()">
         Random Meme
       </button>
@@ -23,13 +23,14 @@
     <div v-if="randomMeme">
     
         <div class="image-container">
-          <img :src="randomMeme.image || previousIndexMeme.image " alt="" />
+          <img :src="randomMeme.image" alt="" />
         </div>
         <div class="audio-container">
           <audio
             id="monAudio"
             ref="monAudio"
             :src="randomMeme.audio"
+            volume="0.2"
             autoplay
             controls
           ></audio>
@@ -45,35 +46,35 @@
 </template>
 
 <script>
-// import memes from '/memebox'
+
 
 const memes = [
   {
-    id: "1",
+    id: "0",
     image: "static/img/memes/bruce_le_S.jpg",
     audio: "static/audio/memes/death1.wav",
     isDejaPasse: false
   },
   {
-    id: "2",
+    id: "1",
     image: "static/img/memes/chevre_miel.jpg",
     audio: "static//audio/memes/emp_1.wav",
     isDejaPasse: false
   },
   {
-    id: "3",
+    id: "2",
     image: "static/img/memes/fry.png",
     audio: "static/audio/memes/goal_1.wav",
     isDejaPasse: false
   },
   {
-    id: "4",
+    id: "3",
     image: "static/img/memes/mainun.png",
     audio: "static/audio/memes/saveme1.wav",
     isDejaPasse: false
   },
   {
-    id: "5",
+    id: "4",
     image: "static/img/memes/pikachu_en_Y.jpg",
     audio: "static/audio/memes/turrset.wav",
     isDejaPasse: false
@@ -86,9 +87,9 @@ export default {
   data() {
     return {
       memes,
+      actualNumber: 0,
       alreadyStoredNumber: [],
-      monAudio: "",
-      actualNumber: 0
+      monAudio: ""
     };
   },
 
@@ -98,53 +99,51 @@ export default {
             return this.getRandomMeme() || {};
         },
         set: function() {
-            return memes[0];
+            return   {
+            id: "100",
+            image: "static/img/memes/relance.jpg",
+            audio: "static/audio/memes/turrset.wav",
+            isDejaPasse: false
+          };
         },
+    },
+    previousMeme:{
+      get: function() {
+          
+        return this.previousMeme();
+      },
+      set: function(){
+      //  return this.previousMeme();
+      }
+    }
+   
+    
     },
 
-    previousIndexMeme: {
-        get: function(e) {
-            return this.previousMeme(e) ;
-        },
-        set: function() {
-            return this.previousMeme(e);
-        }
-    }
-    },
 
   methods: {
     getRandomMeme() {
-      // this.setVolumeSound()
       let randomNumber = Math.floor(Math.random() * memes.length);
       this.actualNumber = randomNumber;
 
-      if (this.alreadyStoredNumber.includes(randomNumber) ) {
-              
-        // a bossé
-        // randomNumber = Math.floor(Math.random() * memes.length);
-        // memes[randomNumber]['isDejaPasse'] = true;
-         
-         return   null
-        
-      } else {
         this.alreadyStoredNumber.push(randomNumber);
         return memes[randomNumber];
-      }
+
+     
     },
 
-    previousMeme(e) {
  
-        // console.log('actual id :',e.id);
-        // let previousIndex = this.actualNumber - 1;
-        // console.log(previousIndex - 1);
-        //  return memes.filter(m => {
-        // if(m.id === previousIndex) {
-        //         console.log(m)
-        //     }
-        // })
+
+    previousMeme(e){
+ 
+     
+     let previousIndex = e.id - 1;
+     console.log('dans la event')
+     return memes[previousIndex];
     
-     },
-    },
+    }
+    
+  },
   
   mounted: () => {
     this.memes = memes;

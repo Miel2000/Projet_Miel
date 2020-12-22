@@ -1,24 +1,50 @@
 <template>
+
   <div id="app">
-    <img src="./assets/poring.png">
-    <router-view/>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">VueJS SandBox</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <router-link  to="/About" exact>About</router-link>
+            <router-link  to="/Calculateur" exact>Calculateur</router-link>
+
+            </li>
+        </ul>
+    
+        </div>
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+
 export default {
-  name: 'App'
-}
+
+  name: "App"
+
+
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+
+.card-container {
+
+  display:flex;
+}
+
+.card {
+
+    margin: 0 50px;
 }
 
 img {

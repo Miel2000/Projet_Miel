@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import Acceuil from '@/components/pages/Acceuil'
+
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -12,4 +15,4 @@ new Vue({
   router,
   components: { App },
   template: '<App/>'
-})
+});
