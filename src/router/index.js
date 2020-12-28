@@ -9,7 +9,9 @@ import About from '@/components/pages/About'
 
 import Bike from '@/components/posts/bike';
 import Moutain from '@/components/posts/moutaine';
-import Tango from '@/components/posts/tango';
+import Ajax from '@/components/Ajax';
+import AirQuality from '@/components/pages/AirQuality';
+
 
 Vue.use(Router)
 
@@ -19,11 +21,13 @@ export default new Router({
     { path: '/', name: 'Acceuil', component: Acceuil },
     { path: '/About', name: 'About', component: About },
     { path: '/rdm', name: 'RoueDuMeme', component: RoueDuMeme },
+    { path: '/ajax', name: 'Ajax', component: Ajax },
     { path: '/calculateur', name: 'Calculateur', component: Calculateur },
     { path: '/cardMeme', name: 'CardMeme', component: CardMeme },
+    { path: '/air', name: 'AirQuality', component: AirQuality },
     { path: '/posts/bike', name: 'Bike', component: Bike },
-    { path: '/posts/moutain', name: 'Moutain', component: Moutain },
-    { path: '/posts/tango', name: 'Tango', component: Tango },
+    { path: '/posts/moutain', name: 'Moutain', component: Moutain }
+
 
   ]
 })
