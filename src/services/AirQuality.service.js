@@ -6,8 +6,15 @@ const baseUrl = "http://api.waqi.info/feed"
 export const AirQualityService = {
     async getAirQuality(cityName) {
         const url = `${baseUrl}/${cityName}/?token=${config.token}`
-        const result = await axios.get(url);
+
+        try {
+            const result = await axios.get(url);
+            return result.data.data;
+        } catch(error) {
+            alert('Erreur ! ')
+            console.log("errorz", error)
+        }
         // console.log(result)
-        return result.data.data;
+    
     }
 }

@@ -11,6 +11,7 @@ import Bike from '@/components/posts/bike';
 import Moutain from '@/components/posts/moutaine';
 import Ajax from '@/components/Ajax';
 import AirQuality from '@/components/pages/AirQuality';
+import CityForm from '@/components/CityForm';
 
 
 Vue.use(Router)
@@ -25,6 +26,7 @@ export default new Router({
     { path: '/calculateur', name: 'Calculateur', component: Calculateur },
     { path: '/cardMeme', name: 'CardMeme', component: CardMeme },
     { path: '/air', name: 'AirQuality', component: AirQuality },
+   
     { path: '/posts/bike', name: 'Bike', component: Bike },
     { path: '/posts/moutain', name: 'Moutain', component: Moutain }
 

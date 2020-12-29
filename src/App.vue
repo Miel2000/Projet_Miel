@@ -13,7 +13,7 @@
             <router-link  to="/About" exact>About</router-link>
             <router-link  to="/Calculateur" exact>Calculateur</router-link>
             <router-link  to="/air" exact>Air Quality</router-link>
-            <router-link  to="/ajax" exact>Ajax</router-link>
+       
 
             </li>
             
